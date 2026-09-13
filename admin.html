@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JADARA - Catálogo Oficial</title>
+    <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <!-- Forzamos la actualización de estilos incrementando la versión -->
+    <link rel="stylesheet" href="estilos.css?v=1.9">
+</head>
+<body>
+
+    <!-- PANTALLA DE APERTURA PROFESIONAL (SPLASH SCREEN) -->
+    <div id="pantalla-carga">
+        <div class="contenido-carga">
+            <img src="logo.png" alt="Logo JADARA" class="logo-carga">
+            <h2>JADARA</h2>
+            <p>Belleza con propósito</p>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO MINIMALISTA Y COMPACTO -->
+    <header>
+        <div class="header-container">
+            <img src="logo.png" alt="Logo JADARA" class="logo-min">
+            <div class="texto-header">
+                <h1>JADARA</h1>
+                <p class="eslogan">Belleza con propósito</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENÚ DE CATEGORÍAS -->
+    <div class="categorias-contenedor">
+        <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
+        <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
+        <button class="btn-categoria" data-filter="belleza" onclick="filtrarProductos('belleza')">Belleza</button>
+    </div>
+
+    <!-- Contenedor del Catálogo -->
+    <main class="catalogo">
+
+        <!-- PRODUCTO 1: SKECHERS -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <div style="position: relative; width: 100%;">
+                <div class="indicador-deslizar">↔ Desliza color</div>
+                <div class="carrusel-contenedor">
+                    <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
+                    <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
+                </div>
+            </div>
+            <div class="info-producto">
+                <h3>Skechers Max Slip</h3>
+                <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro. <br><strong>Tallas: 44 y 45.</strong></p>
+                <span class="precio">$155.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Skechers%20Max%20Slip%20de%20$155.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 2: NIKE SHOX -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
+            <div class="info-producto">
+                <h3>Nike Shox TL</h3>
+                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
+                <span class="precio">$170.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 3: NIKE ZOOM SUPERCAR (CABALLERO) -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Caballero" class="foto-producto">
+            <div class="info-producto">
+                <h3>Nike Zoom Supercar (Caballero)</h3>
+                <p class="descripcion">Diseño aerodinámico de alto rendimiento, máxima amortiguación Zoom Air y estilo urbano único.</p>
+                <span class="precio">$185.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Zoom%20Supercar%20de%20Caballero%20de%20$185.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 4: NIKE ZOOM SUPERCAR (DAMA) -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Dama" class="foto-producto">
+            <div class="info-producto">
+                <h3>Nike Zoom Supercar (Dama)</h3>
+                <p class="descripcion">Máxima comodidad y amortiguación Zoom Air. <br><strong>Tallas: Eur 36 al Eur 39.</strong></p>
+                <span class="precio">$145.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Zoom%20Supercar%20de%20Dama%20de%20$145.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 5: PERFUME KAIAK -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
+            <div class="info-producto">
+                <h3>Perfume KAIAK</h3>
+                <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
+                <span class="precio">$100.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Perfume%20KAIAK%20de%20$100.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div> 
+        </div>
+
+        <!-- PRODUCTO 6: CREMA FACIAL -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="crema-hidratante.png" alt="Crema Hydratante Facial" class="foto-producto">
+            <div class="info-producto">
+                <h3>Crema Hidratante Facial</h3>
+                <p class="descripcion">Enriquecida con ácido hialurónico y vitamina E. Absorción rápida para una piel suave, luminosa y protegida.</p>
+                <span class="precio">$45.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20la%20Crema%20Hidratante%20Facial%20de%20$45.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 7: LABIAL MATTE -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
+            <div class="info-producto">
+                <h3>Labial Velvet Matte</h3>
+                <p class="descripcion">Color intenso de alta pigmentación y acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
+                <span class="precio">$25.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Labial%20Velvet%20Matte%20de%20$25.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 8: SALVATORE (AGREGADO) -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
+            <div class="info-producto">
+                <h3>Calzado Salvatore</h3>
+                <p class="descripcion">Diseño premium con acabados de alta calidad, comodidad ideal para el uso diario. <br><strong>Tallas: 36 a la 44.</strong></p>
+                <span class="precio">$95.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Salvatore%20de%20$95.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- 👇 AQUÍ ABAJO PEGARÁS TUS PRÓXIMOS TENIS EN EL FUTURO 👇 -->
+
+    </main>
+
+    <footer>
+        <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- INTERACCIONES EN VIVO GENERALES -->
+    <script>
+        // Ocultar pantalla de bienvenida
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const pantalla = document.getElementById('pantalla-carga');
+                if (pantalla) pantalla.classList.add('ocultar-carga');
+            }, 1300);
+        });
+
+        // Función global de Filtros
+        function filtrarProductos(filtro) {
+            const botones = document.querySelectorAll('.btn-categoria');
+            botones.forEach(btn => btn.classList.remove('activo'));
+            
+            if (event && event.target) {
+                event.target.classList.add('activo');
+            }
+
+            const tarjetas = document.querySelectorAll('.tarjeta-producto');
+            tarjetas.forEach(tarjeta => {
+                const categoria = tarjeta.getAttribute('data-category');
+                if (filtro === 'todo' || categoria === filtro) {
+                    tarjeta.style.display = "block";
+                } else {
+                    tarjeta.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

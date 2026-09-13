@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JADARA - Catálogo Oficial</title>
+    <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <!-- Forzamos la actualización de estilos incrementando la versión -->
+    <link rel="stylesheet" href="estilos.css?v=5.5">
+
+</head>
+<body>
+
+    <!-- PANTALLA DE APERTURA PROFESIONAL (SPLASH SCREEN) -->
+    <div id="pantalla-carga">
+        <div class="contenido-carga">
+            <img src="logo.png" alt="Logo JADARA" class="logo-carga">
+            <h2>JADARA</h2>
+            <p>Belleza con propósito</p>
+        </div>
+    </div>
+
+        <!-- ENCABEZADO MINIMALISTA CON CARRITO INTEGRADO -->
+    <header>
+        <div class="header-container">
+            <div class="header-logo-texto">
+                <img src="logo.png" alt="Logo JADARA" class="logo-min">
+                <div class="texto-header">
+                    <h1>JADARA</h1>
+                    <p class="eslogan">Belleza con propósito</p>
+                </div>
+            </div>
+            
+            <!-- EL CARRITO AHORA EN LA ESQUINA SUPERIOR DERECHA -->
+            <div id="btn-carrito-encabezado" onclick="alternarCarrito()">
+                🛒 <span id="contador-carrito">0</span>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- MENÚ DE CATEGORÍAS -->
+    <div class="categorias-contenedor">
+        <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
+        <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
+        <button class="btn-categoria" data-filter="belleza" onclick="filtrarProductos('belleza')">Belleza</button>
+    </div>
+
+    <!-- Contenedor del Catálogo -->
+    <main class="catalogo">
+
+        <!-- PRODUCTO 1: SKECHERS -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <div style="position: relative; width: 100%;">
+                <div class="indicador-deslizar">↔ Desliza color</div>
+                <div class="carrusel-contenedor">
+                    <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
+                    <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
+                </div>
+            </div>
+            <div class="info-producto">
+                <h3 class="nombre-prod">Skechers Max Slip</h3>
+                
+                
+                <!-- NUEVOS BOTONES DE TALLAS MODERNOS -->
+                                                 <!-- SELECTOR DE COLORES MODERNIZADO EN BOTONES -->
+                <div class="contenedor-colores-moderno">
+                    <span class="color-titulo">Color:</span>
+                    <div class="grupo-colores">
+                        <!-- El primer botón inicia seleccionado por defecto -->
+                        <button type="button" class="btn-color-texto seleccionada" data-color="Negro">Negro</button>
+                        <button type="button" class="btn-color-texto" data-color="Gris">Gris</button>
+                    </div>
+                </div>
+
+
+                <div class="contenedor-tallas-moderno">
+                    <span class="talla-titulo">Talla:</span>
+                    <div class="grupo-tallas">
+                        <button type="button" class="btn-talla seleccionada" data-talla="44">44</button>
+                        <button type="button" class="btn-talla" data-talla="45">45</button>
+                    </div>
+                </div>
+
+                <span class="precio" data-precio="$155.000">$155.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+
+<!-- PRODUCTO 2: NIKE SHOX -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
+            <div class="info-producto">
+                <h3 class="nombre-prod">Nike Shox TL</h3>
+                
+                
+                <!-- NUEVOS BOTONES DE TALLAS MODERNOS -->
+                <div class="contenedor-tallas-moderno">
+                    <span class="talla-titulo">Talla:</span>
+                    <div class="grupo-tallas">
+                        <button type="button" class="btn-talla seleccionada" data-talla="38">38</button>
+                        <button type="button" class="btn-talla" data-talla="39">39</button>
+                        <button type="button" class="btn-talla" data-talla="40">40</button>
+                        <button type="button" class="btn-talla" data-talla="41">41</button>
+                        <button type="button" class="btn-talla" data-talla="42">42</button>
+                    </div>
+                </div>
+
+                <span class="precio" data-precio="$170.000">$170.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+
+
+                <!-- PRODUCTO 3: NIKE ZOOM SUPERCAR (CABALLERO) -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Caballero" class="foto-producto">
+            <div class="info-producto">
+                <h3 class="nombre-prod">Nike Zoom Supercar (Caballero)</h3>
+                
+                
+                <!-- NUEVOS BOTONES DE TALLAS MODERNOS -->
+                <div class="contenedor-tallas-moderno">
+                    <span class="talla-titulo">Talla:</span>
+                    <div class="grupo-tallas">
+                        <button type="button" class="btn-talla seleccionada" data-talla="39">39</button>
+                        <button type="button" class="btn-talla" data-talla="40">40</button>
+                        <button type="button" class="btn-talla" data-talla="41">41</button>
+                        <button type="button" class="btn-talla" data-talla="42">42</button>
+                        <button type="button" class="btn-talla" data-talla="43">43</button>
+                    </div>
+                </div>
+
+                <span class="precio" data-precio="$185.000">$185.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+
+        <!-- PRODUCTO 4: NIKE ZOOM SUPERCAR (DAMA) -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Dama" class="foto-producto">
+            <div class="info-producto">
+                <h3 class="nombre-prod">Nike Zoom Supercar (Dama)</h3>
+                
+                
+                <!-- NUEVOS BOTONES DE TALLAS MODERNOS -->
+                <div class="contenedor-tallas-moderno">
+                    <span class="talla-titulo">Talla:</span>
+                    <div class="grupo-tallas">
+                        <button type="button" class="btn-talla seleccionada" data-talla="36">36</button>
+                        <button type="button" class="btn-talla" data-talla="37">37</button>
+                        <button type="button" class="btn-talla" data-talla="38">38</button>
+                        <button type="button" class="btn-talla" data-talla="39">39</button>
+                    </div>
+                </div>
+
+                <span class="precio" data-precio="$145.000">$145.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCTO 5: PERFUME KAIAK -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
+            <div class="info-producto">
+                <h3>Perfume KAIAK</h3>
+                
+                <span class="precio">$100.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div> 
+        </div>
+
+        <!-- PRODUCTO 6: CREMA FACIAL -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="crema-hidratante.png" alt="Crema Hydratante Facial" class="foto-producto">
+            <div class="info-producto">
+                <h3>Crema Hidratante Facial</h3>
+                
+                <span class="precio">$45.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+
+        <!-- PRODUCTO 7: LABIAL MATTE -->
+        <div class="tarjeta-producto" data-category="belleza">
+            <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
+            <div class="info-producto">
+                <h3>Labial Velvet Matte</h3>
+                
+                <span class="precio">$25.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+        
+        <!-- PRODUCTO 8: SALVATORE -->
+        <div class="tarjeta-producto" data-category="calzado">
+            <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
+            <div class="info-producto">
+                <h3 class="nombre-prod">Calzado Salvatore</h3>
+                
+                
+                <!-- NUEVOS BOTONES DE TALLAS MODERNOS -->
+                <div class="contenedor-tallas-moderno">
+                    <span class="talla-titulo">Talla:</span>
+                    <div class="grupo-tallas">
+                        <button type="button" class="btn-talla seleccionada" data-talla="36">36</button>
+                        <button type="button" class="btn-talla" data-talla="37">37</button>
+                        <button type="button" class="btn-talla" data-talla="38">38</button>
+                        <button type="button" class="btn-talla" data-talla="39">39</button>
+                        <button type="button" class="btn-talla" data-talla="40">40</button>
+                        <button type="button" class="btn-talla" data-talla="41">41</button>
+                        <button type="button" class="btn-talla" data-talla="42">42</button>
+                        <button type="button" class="btn-talla" data-talla="43">43</button>
+                        <button type="button" class="btn-talla" data-talla="44">44</button>
+                    </div>
+                </div>
+
+                <span class="precio" data-precio="$95.000">$95.000 COP</span>
+                <button type="button" class="btn-whatsapp btn-agregar-carrito" data-phone="573246670248">
+    Agregar al Carrito
+</button>
+
+            </div>
+        </div>
+
+
+        <!-- 👇 AQUÍ ABAJO PEGARÁS TUS PRÓXIMOS TENIS EN EL FUTURO 👇 -->
+
+    </main>
+
+    <!-- BARRA LATERAL DEL CARRITO DE COMPRAS -->
+    <div id="carrito-lateral" class="carrito-cerrado">
+        <div class="header-carrito">
+            <h2>Mi Carrito</h2>
+            <span class="cerrar-carrito" onclick="alternarCarrito()">&times;</span>
+        </div>
+        
+        <!-- Contenedor dinámico donde se sumarán los productos -->
+        <div id="items-carrito"></div>
+
+        <div class="footer-carrito">
+            <div class="total-contenedor">
+                <span>Total:</span>
+                <span id="precio-total-carrito">$0 COP</span>
+            </div>
+            <button id="btn-enviar-carrito" onclick="enviarPedidoWhatsApp()">
+                Confirmar Pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
+   
+    <footer>
+        <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- INTERACCIONES EN VIVO GENERALES COMPLETAMENTE REPARADAS -->
+               <!-- EN CONTRAPOSICIÓN CON CUALQUIER OTRA ESTRUCTURA, ESTE BLOQUE DEBE QUEDAR COMPLETAMENTE CERRADO -->
+       <!-- PANTALLA FLOTANTE PARA AGRANDAR IMÁGENES -->
+    <div id="modal-zoom" class="modal">
+        <span class="cerrar-modal">&times;</span>
+        <img class="contenido-modal" id="imagen-ampliada" alt="Vista ampliada">
+    </div>
+
+    <script>
+        // 1. PANTALLA DE CARGA (SPLASH SCREEN)
+        window.addEventListener('load', () => {
+            const pantallaCarga = document.getElementById('pantalla-carga');
+            if (pantallaCarga) {
+                setTimeout(() => {
+                    pantallaCarga.classList.add('oculto');
+                }, 1300);
+            }
+        });
+
+        // RESPALDO LOCAL: Se oculta en 2 segundos si abres directo de tu carpeta
+        setTimeout(() => {
+            const pantallaCarga = document.getElementById('pantalla-carga');
+            if (pantallaCarga) pantallaCarga.classList.add('oculto');
+        }, 2000);
+
+        // 2. FUNCIÓN DE FILTROS PARA LAS CATEGORÍAS
+        function filtrarProductos(filtro) {
+            const botones = document.querySelectorAll('.btn-categoria');
+            botones.forEach(btn => btn.classList.remove('activo'));
+
+            const botonActivo = document.querySelector(`.btn-categoria[data-filter="${filtro}"]`);
+            if (botonActivo) {
+                botonActivo.classList.add('activo');
+            }
+
+            const tarjetas = document.querySelectorAll('.tarjeta-producto');
+            tarjetas.forEach(tarjeta => {
+                const categoria = tarjeta.getAttribute('data-category');
+                if (filtro === 'todo' || categoria === filtro) {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- 🔗 CONEXIÓN CON TU NUEVO ARCHIVO JAVASCRIPT ORGANIZADO -->
+    <script src="tienda.js?v=1.0"></script>
+</body>
+</html>
+
+
