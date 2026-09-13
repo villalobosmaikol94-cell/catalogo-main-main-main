@@ -1,4 +1,12 @@
-let carrito = [];
+// 1. MODIFICACIÓN: Intentamos recuperar el carrito guardado al abrir la página
+let carrito = JSON.parse(localStorage.getItem('carritoJadara')) || [];
+
+// Al cargar el script, si el carrito recuperado tiene elementos, actualizamos la interfaz de inmediato
+document.addEventListener('DOMContentLoaded', () => {
+    if (carrito.length > 0) {
+        actualizarInterfazCarrito();
+    }
+});
 
 function alternarCarrito() {
     const carritoLateral = document.getElementById('carrito-lateral');
@@ -22,14 +30,13 @@ document.addEventListener('click', function(e) {
             e.target.classList.add('seleccionada');
         }
     }
-        if (e.target && e.target.classList.contains('btn-color-texto')) {
+    if (e.target && e.target.classList.contains('btn-color-texto')) {
         const grupo = e.target.closest('.grupo-colores');
         if (grupo) {
             grupo.querySelectorAll('.btn-color-texto').forEach(btn => btn.classList.remove('seleccionada'));
             e.target.classList.add('seleccionada');
         }
     }
-
 });
 
 // AGREGAR PRODUCTOS AL CARRITO CON COLOR
@@ -99,11 +106,16 @@ function actualizarInterfazCarrito() {
 
     contador.innerText = carrito.length;
     contenedorTotal.innerText = `$${totalSuma.toLocaleString('es-CO')} COP`;
+
+    // 2. MODIFICACIÓN: Guardamos la lista en la memoria del navegador cada vez que cambia
+    localStorage.setItem('carritoJadara', JSON.stringify(carrito));
 }
 
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
     actualizarInterfazCarrito();
+    // 3. MODIFICACIÓN: Guardamos los cambios también tras eliminar un elemento
+    localStorage.setItem('carritoJadara', JSON.stringify(carrito));
 }
 
 function enviarPedidoWhatsApp() {
@@ -125,10 +137,8 @@ function enviarPedidoWhatsApp() {
     const contenedorTotal = document.getElementById('precio-total-carrito').innerText;
     mensaje += `\n💰 *Total del Pedido:* ${contenedorTotal}`;
 
-  const urlWhatsApp = "https://wa.me" + "/" + numeroTelefono + "?text=" + encodeURIComponent(mensaje);
-
-
- window.open(urlWhatsApp, '_blank');
+    const urlWhatsApp = "https://wa.me" + "/" + numeroTelefono + "?text=" + encodeURIComponent(mensaje);
+    window.open(urlWhatsApp, '_blank');
 }
 
 // ZOOM
@@ -146,38 +156,34 @@ document.addEventListener('click', function(e) {
         if (modal) modal.style.display = "none";
     }
 });
+
 // --- EFECTO MÁGICO: DESTELLOS DE ESTRELLAS ---
 document.addEventListener('mousemove', function(e) {
-    // Para que no cree demasiadas estrellas seguidas, limitamos el azar
     if (Math.random() > 0.15) return; 
 
     const estrella = document.createElement('div');
     estrella.classList.add('destello-estrella');
     
-    // Posición inicial en la punta del mouse
     estrella.style.left = e.clientX + 'px';
     estrella.style.top = e.clientY + 'px';
     
-    // Movimiento aleatorio hacia los lados (física del destello)
-    const direccionX = (Math.random() - 0.5) * 40; // Se mueve a los lados
-    const direccionY = (Math.random() * 30) + 10;   // Cae un poquito
+    const direccionX = (Math.random() - 0.5) * 40;
+    const direccionY = (Math.random() * 30) + 10;
     
     estrella.style.setProperty('--x-destello', `${direccionX}px`);
     estrella.style.setProperty('--y-destello', `${direccionY}px`);
     
-    // Tamaño aleatorio para que se vea orgánico
     const tamano = Math.random() * 6 + 4;
     estrella.style.width = tamano + 'px';
     estrella.style.height = tamano + 'px';
 
     document.body.appendChild(estrella);
     
-    // Borrar la estrella de la memoria cuando termine la animación
     setTimeout(() => {
         estrella.remove();
     }, 1200);
 });
-// Funciona al tocar la pantalla en celulares
+
 document.addEventListener('touchmove', function(e) {
     if (Math.random() > 0.15) return; 
     const t = e.touches[0];
@@ -195,3 +201,4 @@ document.addEventListener('touchmove', function(e) {
     document.body.appendChild(estrella);
     setTimeout(() => { estrella.remove(); }, 1200);
 });
+
