@@ -988,7 +988,7 @@ e
     color: #b57c7c !important; /* El color de JADARA */
     padding: 12px 15px !important;
     border-radius: 25px !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+       font-family: 'Fluent Emoji Color', 'Plus Jakarta Sans', sans-serif !important;
     font-size: 0.95rem !important;
     font-weight: 600 !important;
     text-align: left !important;
@@ -1007,5 +1007,9 @@ e
     color: #ffffff !important; /* Letras blancas */
     border-color: #b57c7c !important;
     transform: translateX(4px); /* Se mueve un milímetro a la derecha */
+}
+
+.btn-categoria-item {
+    font-family: 'Fluent Emoji Color', 'Plus Jakarta Sans', sans-serif !important;
 }
 
