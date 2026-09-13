@@ -32,26 +32,30 @@
 
     <!-- ENCABEZADO MINIMALISTA CON CARRITO INTEGRADO -->
     <header>
-        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-
-            <div class="header-logo-texto">
-                <img src="logo.png" alt="Logo JADARA" class="logo-min">
-                <div class="texto-header">
-                    <h1>JADARA</h1>
-                    <p class="eslogan">Belleza con propósito</p>
-                </div>
+    <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        
+        <!-- LADO IZQUIERDO: LOGO CON DETECTOR SECRETO -->
+        <div class="header-logo-texto" style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.png" id="logo-secreto" alt="Logo JADARA" class="logo-min" style="cursor: pointer;">
+            <div class="texto-header">
+                <h1 style="margin: 0; font-size: 18px; color: #b57c7c;">JADARA</h1>
+                <p class="eslogan" style="margin: 0; font-size: 11px; color: #8c8c8c;">Belleza con propósito</p>
             </div>
-                                          <!-- CAJA DEL MEDIO: ÚNICAMENTE LA CITA DEL SALMO -->
-                <div class="versiculo-espejo" style="flex: 1; max-width: 40%; text-align: center; margin: 0 auto; padding: 0;">
+        </div>
+
+        <!-- CAJA DEL MEDIO: ÚNICAMENTE LA CITA DEL SALMO -->
+        <div class="versiculo-espejo" style="flex: 1; max-width: 40%; text-align: center; margin: 0 auto;">
             <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #b57c7c; margin: 0;">Salmos 37:3-5</p>
         </div>
-        
-        <!-- EL CARRITO AHORA EN LA ESQUINA SUPERIOR DERECHA -->
-            <div id="btn-carrito-encabezado" onclick="alternarCarrito()">
-                🛒 <span id="contador-carrito">0</span>
-            </div>
+
+        <!-- EL CARRITO EN LA ESQUINA SUPERIOR DERECHA -->
+        <div id="btn-carrito-encabezado" onclick="alternarCarrito()" style="cursor: pointer;">
+            🛒 <span id="contador-carrito">0</span>
         </div>
-    </header>
+
+    </div>
+</header>
+
 
 
   <!-- BOTÓN ELEGANTE DE MENÚ LATERAL -->
@@ -373,6 +377,25 @@
                     tarjeta.style.display = 'none';
                 }
             });
+                    // --- MOTOR DEL ACCESO SECRETO DE 5 CLICS EN EL LOGO ---
+        let contadorClicsLogo = 0;
+        let ultimoClicTiempo = 0;
+        document.addEventListener('click', (e) => {
+            const logo = document.getElementById('logo-secreto');
+            if (e.target === logo) {
+                const tiempoActual = Date.now();
+                if (tiempoActual - ultimoClicTiempo > 1500) {
+                    contadorClicsLogo = 0;
+                }
+                ultimoClicTiempo = tiempoActual;
+                contadorClicsLogo++;
+                if (contadorClicsLogo === 5) {
+                    contadorClicsLogo = 0;
+                    window.location.href = "login.html";
+                }
+            }
+        });
+
         }
     </script>
 
