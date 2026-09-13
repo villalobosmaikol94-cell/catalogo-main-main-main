@@ -911,20 +911,31 @@ nav::-webkit-scrollbar {
     font-style: italic;
     margin: 0;
 }
-/* --- ESTILOS DEL MENÚ LATERAL DESPLEGABLE --- */
+/* --- ESTILOS DEL MENÚ LATERAL DESPLEGABLE CON FONDO DE TULIPÁN --- */
+/* --- ESTILOS DEL MENÚ LATERAL DESPLEGABLE CON PATRÓN E ELEGANTE --- */
 #menu-lateral-categorias {
     position: fixed !important;
     top: 0 !important;
     left: -280px !important; /* Escondido a la izquierda */
     width: 280px !important;
     height: 100vh !important;
+    
+    /* MODIFICACIÓN: Fondo base con un sutil patrón de líneas boutique */
     background-color: #ffffff !important;
+    background-image: 
+        radial-gradient(rgba(181, 124, 124, 0.05) 1px, transparent 0),
+        url('tulipan.png') !important; /* Mantiene tu hermosa imagen actual */
+    background-repeat: repeat, no-repeat !important;
+    background-position: 0 0, bottom right !important; /* Puntos arriba, tulipán abajo */
+    background-size: 16px 16px, 140px auto !important; /* Tamaño del patrón y del tulipán */
+    
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1) !important;
     z-index: 100000 !important; /* Por encima de todo */
     transition: left 0.3s ease !important; /* Animación suave al abrir */
     display: flex !important;
     flex-direction: column !important;
 }
+
 
 /* Cuando la clase cambia a abierto, se desliza hacia adentro */
 #menu-lateral-categorias.menu-lateral-abierto {
@@ -966,9 +977,9 @@ nav::-webkit-scrollbar {
 }
 
 .btn-categoria-item {
-    background-color: #fcf6f6 !important;
-    border: 1px solid #f3e1e1 !important;
-    color: #b57c7c !important;
+    background-color: rgba(252, 246, 246, 0.3) !important; /* Fondo rosa translúcido al 30% */
+    border: 1px solid rgba(181, 124, 124, 0.25) !important; /* Borde rosa finito */
+    color: #b57c7c !important; /* El color de JADARA */
     padding: 12px 15px !important;
     border-radius: 25px !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -976,10 +987,19 @@ nav::-webkit-scrollbar {
     font-weight: 600 !important;
     text-align: left !important;
     cursor: pointer !important;
-    transition: all 0.2s ease !important;
+    
+    /* EFECTO DE VIDRIO ESMERILADO (Muestra el tulipán difuminado atrás) */
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    
+    transition: all 0.3s ease !important;
 }
 
-.btn-categoria-item:hover {
-    background-color: #b57c7c !important;
-    color: #ffffff !important;
+.btn-categoria-item:hover,
+.btn-categoria-item:active {
+    background-color: rgba(181, 124, 124, 0.85) !important; /* Se vuelve rosa sólido al tocarlo */
+    color: #ffffff !important; /* Letras blancas */
+    border-color: #b57c7c !important;
+    transform: translateX(4px); /* Se mueve un milímetro a la derecha */
 }
+
