@@ -911,3 +911,75 @@ nav::-webkit-scrollbar {
     font-style: italic;
     margin: 0;
 }
+/* --- ESTILOS DEL MENÚ LATERAL DESPLEGABLE --- */
+#menu-lateral-categorias {
+    position: fixed !important;
+    top: 0 !important;
+    left: -280px !important; /* Escondido a la izquierda */
+    width: 280px !important;
+    height: 100vh !important;
+    background-color: #ffffff !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1) !important;
+    z-index: 100000 !important; /* Por encima de todo */
+    transition: left 0.3s ease !important; /* Animación suave al abrir */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Cuando la clase cambia a abierto, se desliza hacia adentro */
+#menu-lateral-categorias.menu-lateral-abierto {
+    left: 0 !important;
+}
+
+/* Encabezado del menú lateral */
+.menu-lateral-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 20px !important;
+    border-bottom: 1px solid #f3e1e1 !important;
+}
+
+.menu-lateral-header h3 {
+    margin: 0 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    color: #b57c7c !important;
+    font-size: 1.1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.btn-cerrar-menu {
+    background: none !important;
+    border: none !important;
+    font-size: 20px !important;
+    color: #8c8c8c !important;
+    cursor: pointer !important;
+}
+
+/* Contenido y botones del menú */
+.menu-lateral-contenido {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15px !important;
+    gap: 10px !important;
+}
+
+.btn-categoria-item {
+    background-color: #fcf6f6 !important;
+    border: 1px solid #f3e1e1 !important;
+    color: #b57c7c !important;
+    padding: 12px 15px !important;
+    border-radius: 25px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-categoria-item:hover {
+    background-color: #b57c7c !important;
+    color: #ffffff !important;
+}

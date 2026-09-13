@@ -51,17 +51,29 @@
     </header>
 
 
-    <!-- MENÚ DE CATEGORÍAS -->
-    <div class="categorias-contenedor">
-      <button class="btn-categoria" onclick="filtrarProductos('todo', event)">Todo</button>
-<button class="btn-categoria" onclick="filtrarProductos('calzado', event)">Calzado</button>
-<button class="btn-categoria" onclick="filtrarProductos('carteras', event)">Carteras</button>
-<button class="btn-categoria" onclick="filtrarProductos('belleza', event)">Belleza</button>
-<button class="btn-categoria" onclick="filtrarProductos('gorras', event)">Gorras</button>
-<button class="btn-categoria" onclick="filtrarProductos('ropa', event)">Ropa</button>
-<button class="btn-categoria" onclick="filtrarProductos('tecnologia', event)">Tecnología</button>
+  <!-- BOTÓN ELEGANTE DE MENÚ LATERAL -->
+<div class="menu-nav-contenedor" style="width: 100%; padding: 10px 20px; box-sizing: border-box;">
+    <button class="btn-menu-hamburguesa" onclick="alternarMenuLateral()" style="background: none; border: none; font-size: 24px; color: #b57c7c; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600;">
+        ☰ <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Categorías</span>
+    </button>
+</div>
 
+<!-- EL MENÚ LATERAL DESPLEGABLE (OCULTO POR DEFECTO) -->
+<div id="menu-lateral-categorias" class="menu-lateral-cerrado">
+    <div class="menu-lateral-header">
+        <h3>Categorías</h3>
+        <button class="btn-cerrar-menu" onclick="alternarMenuLateral()">✕</button>
     </div>
+    <div class="menu-lateral-contenido">
+        <button class="btn-categoria-item" onclick="filtrarProductos('todo', event); alternarMenuLateral()">Todo</button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('calzado', event); alternarMenuLateral()">Calzado</button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('carteras', event); alternarMenuLateral()">Carteras</button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('belleza', event); alternarMenuLateral()">Belleza</button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('gorras', event); alternarMenuLateral()">Gorras</button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('ropa', event); alternarMenuLateral()">Ropa</button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('tecnologia', event); alternarMenuLateral()">Tecnología</button>
+    </div>
+</div>
 
     <!-- Contenedor del Catálogo -->
     <main class="catalogo">

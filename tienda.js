@@ -21,6 +21,19 @@ function alternarCarrito() {
     }
 }
 
+function alternarMenuLateral() {
+    const menu = document.getElementById('menu-lateral-categorias');
+    if (menu) {
+        if (menu.classList.contains('menu-lateral-cerrado')) {
+            menu.classList.remove('menu-lateral-cerrado');
+            menu.classList.add('menu-lateral-abierto');
+        } else {
+            menu.classList.remove('menu-lateral-abierto');
+            menu.classList.add('menu-lateral-cerrado');
+        }
+    }
+}
+
 // INTERACTIVIDAD PARA BOTONES DE TALLAS Y COLORES
 document.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('btn-talla')) {
