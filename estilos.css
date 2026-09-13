@@ -76,7 +76,7 @@ body {
    ========================================== */
 header {
     background-color: #ffffff;
-    padding: 15px 20px;
+        padding: 5px 20px;
     border-bottom: 2px solid #d4af37;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
     position: sticky;
@@ -130,32 +130,43 @@ header h1 {
     font-style: italic;
     margin-top: 2px;
 }
+/* --- ENCABEZADO FIJO ARRIBA DE LA PÁGINA --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Asegura que quede por encima de las tarjetas */
+    background-color: #ffffff; /* Ajusta al fondo exacto de tu header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra muy sutil abajo */
+}
 
-/* --- EFECTO VERSÍCULO TRASLÚCIDO TIPO ESPEJO SATINADO --- */
+/* Dejamos un espacio arriba del catálogo para que el header fijo no tape los primeros tenis */
+body {
+    padding-top: 90px; 
+}
+
+/* --- VERSÍCULO CENTRADO Y TRASLÚCIDO EN EL MEDIO --- */
 .versiculo-espejo {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem; /* Tamaño fino y elegante */
+    font-size: 0.75rem;
     font-weight: 400;
     font-style: italic;
+    line-height: 1.4;
+    text-align: center;
+    color: #b57c7c; /* Tu color de marca sólido para asegurar que se vea */
+    flex: 1; 
+    max-width: 45%;
+    margin: 0 auto;
+}
+
+.cita-salmo {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.68rem;
     letter-spacing: 0.5px;
-    margin-top: 10px;
-    line-height: 1.5;
-    max-width: 450px; /* Evita que se estire demasiado en pantallas anchas */
-    text-align: left;
-    
-    /* Degradado satinado usando tu rosa base #b57c7c con transparencias */
-    background: linear-gradient(
-        135deg, 
-        rgba(181, 124, 124, 0.5) 0%,   /* Rosa traslúcido */
-        rgba(255, 242, 242, 0.9) 50%,  /* Brillo de luz central (Efecto cristal) */
-        rgba(181, 124, 124, 0.5) 100%  /* Rosa traslúcido */
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-    /* Suavizado óptico traslúcido */
-    filter: opacity(0.85) drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.5));
+    margin: 0 0 2px 0;
+    color: #b57c7c;
 }
 
 /* Detalle elegante para la cita del libro */

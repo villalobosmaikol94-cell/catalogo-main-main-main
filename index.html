@@ -24,31 +24,13 @@
     </div>
 
     <!-- ENCABEZADO MINIMALISTA CON CARRITO INTEGRADO (FUERA DE LA PANTALLA DE CARGA) -->
-    <header>
-        <div class="header-container">
-            <div class="header-logo-texto">
-                <img src="logo.png" alt="Logo JADARA" class="logo-min">
-                <div class="texto-header">
-                    <h1>JADARA</h1>
-                    <p class="eslogan">Belleza con propósito</p>
-                    
-                    <!-- VERSÍCULO SALMOS 37:3-5 INTEGRADO -->
-                    <p class="versiculo-espejo">
-                        "Confía en el SEÑOR y haz el bien... El SEÑOR te da gozo, disfrútalo, y él te dará lo que más deseas. Entrega al SEÑOR tu vida; confía en él y Dios actuará." <span class="cita-salmo">- Salmos 37:3-5</span>
-                    </p>
-                </div>
-            </div>
-            
-            <!-- EL CARRITO EN LA ESQUINA SUPERIOR DERECHA -->
-            <div id="btn-carrito-encabezado" onclick="alternarCarrito()">
-                🛒 <span id="contador-carrito">0</span>
-            </div>
-        </div>
-    </header>
+</header>
+
 
         <!-- ENCABEZADO MINIMALISTA CON CARRITO INTEGRADO -->
     <header>
-        <div class="header-container">
+        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+
             <div class="header-logo-texto">
                 <img src="logo.png" alt="Logo JADARA" class="logo-min">
                 <div class="texto-header">
@@ -56,7 +38,20 @@
                     <p class="eslogan">Belleza con propósito</p>
                 </div>
             </div>
-            
+                           <!-- CAJA DEL MEDIO: EL VERSÍCULO CONFIGURADO DIRECTAMENTE -->
+        <div style="flex: 1; max-width: 45%; text-align: center; margin: 0 auto;">
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #b57c7c; margin: 0 0 4px 0;">
+                Salmos 37:3-5
+            </p>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 400; font-style: italic; line-height: 1.5; color: #b57c7c; margin: 0;">
+                Confía en el SEÑOR y haz el bien;<br>
+                vive de la tierra que Dios te dio y haz tu trabajo con seguridad.<br>
+                El SEÑOR te da gozo, disfrútalo, y él te dará lo que más deseas.<br>
+                Entrega al SEÑOR tu vida; confía en él y Dios actuará.
+            </p>
+        </div>
+
+
             <!-- EL CARRITO AHORA EN LA ESQUINA SUPERIOR DERECHA -->
             <div id="btn-carrito-encabezado" onclick="alternarCarrito()">
                 🛒 <span id="contador-carrito">0</span>
