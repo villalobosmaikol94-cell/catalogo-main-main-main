@@ -3,192 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JADARA - Catálogo Oficial</title>
-    <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
+    <title>JADARA - Panel de Administración</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <!-- Forzamos la actualización de estilos incrementando la versión -->
-    <link rel="stylesheet" href="estilos.css?v=1.9">
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fdfbfb; margin: 0; padding: 20px; color: #333; }
+        .admin-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(181, 124, 124, 0.1); border: 1px solid #f5ebeb; }
+        h1 { color: #b57c7c; text-align: center; font-size: 24px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #555; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e1d5d5; border-radius: 8px; box-sizing: border-box; font-family: inherit; font-size: 14px; transition: border-color 0.3s; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #b57c7c; }
+        .btn-guardar { width: 100%; background-color: #b57c7c; color: white; border: none; padding: 14px; border-radius: 25px; font-weight: bold; font-size: 15px; cursor: pointer; transition: background 0.3s, transform 0.2s; margin-top: 10px; }
+        .btn-guardar:active { transform: scale(0.98); }
+        .alerta { padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px; font-size: 14px; display: none; }
+        .alerta-exito { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+    </style>
 </head>
 <body>
 
-    <!-- PANTALLA DE APERTURA PROFESIONAL (SPLASH SCREEN) -->
-    <div id="pantalla-carga">
-        <div class="contenido-carga">
-            <img src="logo.png" alt="Logo JADARA" class="logo-carga">
-            <h2>JADARA</h2>
-            <p>Belleza con propósito</p>
-        </div>
+    <div class="admin-container">
+        <h1>Añadir Producto - JADARA</h1>
+        
+        <div id="alerta-exito" class="alerta alerta-exito">✨ ¡Producto añadido al catálogo con éxito!</div>
+
+        <form id="form-producto" onsubmit="guardarProducto(event)">
+            <div class="form-group">
+                <label for="nombre">Nombre del Producto</label>
+                <input type="text" id="nombre" required placeholder="Ej. Cartera Cuero Elegante">
+            </div>
+
+            <div class="form-group">
+                <label for="precio">Precio (en COP)</label>
+                <input type="number" id="precio" required placeholder="Ej. 120000">
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" required>
+                    <option value="calzado">👠 Calzado</option>
+                    <option value="carteras">👜 Carteras</option>
+                    <option value="belleza">💄 Belleza</option>
+                    <option value="gorras">🧢 Gorras</option>
+                    <option value="ropa">👗 Ropa</option>
+                    <option value="tecnologia">📱 Tecnología</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="imagen">Enlace (URL) de la Imagen</label>
+                <input type="url" id="imagen" required placeholder="https://ejemplo.com">
+            </div>
+
+            <button type="submit" class="btn-guardar">🚀 Añadir al Catálogo</button>
+        </form>
     </div>
 
-    <!-- ENCABEZADO MINIMALISTA Y COMPACTO -->
-    <header>
-        <div class="header-container">
-            <img src="logo.png" alt="Logo JADARA" class="logo-min">
-            <div class="texto-header">
-                <h1>JADARA</h1>
-                <p class="eslogan">Belleza con propósito</p>
-            </div>
-        </div>
-    </header>
-
-    <!-- MENÚ DE CATEGORÍAS -->
-    <div class="categorias-contenedor">
-        <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
-        <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
-        <button class="btn-categoria" data-filter="belleza" onclick="filtrarProductos('belleza')">Belleza</button>
-    </div>
-
-    <!-- Contenedor del Catálogo -->
-    <main class="catalogo">
-
-        <!-- PRODUCTO 1: SKECHERS -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <div style="position: relative; width: 100%;">
-                <div class="indicador-deslizar">↔ Desliza color</div>
-                <div class="carrusel-contenedor">
-                    <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
-                    <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
-                </div>
-            </div>
-            <div class="info-producto">
-                <h3>Skechers Max Slip</h3>
-                <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro. <br><strong>Tallas: 44 y 45.</strong></p>
-                <span class="precio">$155.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Skechers%20Max%20Slip%20de%20$155.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 2: NIKE SHOX -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="nikeshoxtl.png" alt="Nike Shox TL" class="foto-producto">
-            <div class="info-producto">
-                <h3>Nike Shox TL</h3>
-                <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
-                <span class="precio">$170.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 3: NIKE ZOOM SUPERCAR (CABALLERO) -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Caballero" class="foto-producto">
-            <div class="info-producto">
-                <h3>Nike Zoom Supercar (Caballero)</h3>
-                <p class="descripcion">Diseño aerodinámico de alto rendimiento, máxima amortiguación Zoom Air y estilo urbano único.</p>
-                <span class="precio">$185.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Zoom%20Supercar%20de%20Caballero%20de%20$185.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 4: NIKE ZOOM SUPERCAR (DAMA) -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="nike-zoom-supercar.png" alt="Nike Zoom Supercar Dama" class="foto-producto">
-            <div class="info-producto">
-                <h3>Nike Zoom Supercar (Dama)</h3>
-                <p class="descripcion">Máxima comodidad y amortiguación Zoom Air. <br><strong>Tallas: Eur 36 al Eur 39.</strong></p>
-                <span class="precio">$145.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Zoom%20Supercar%20de%20Dama%20de%20$145.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 5: PERFUME KAIAK -->
-        <div class="tarjeta-producto" data-category="belleza">
-            <img src="kaiaʞ.png" alt="Perfume KAIAK" class="foto-producto">
-            <div class="info-producto">
-                <h3>Perfume KAIAK</h3>
-                <p class="descripcion">Fragancia icónica de alta fijación. Una explosión de frescura cítrica y notas aromáticas acuáticas, ideal para el día a día.</p>
-                <span class="precio">$100.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Perfume%20KAIAK%20de%20$100.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div> 
-        </div>
-
-        <!-- PRODUCTO 6: CREMA FACIAL -->
-        <div class="tarjeta-producto" data-category="belleza">
-            <img src="crema-hidratante.png" alt="Crema Hydratante Facial" class="foto-producto">
-            <div class="info-producto">
-                <h3>Crema Hidratante Facial</h3>
-                <p class="descripcion">Enriquecida con ácido hialurónico y vitamina E. Absorción rápida para una piel suave, luminosa y protegida.</p>
-                <span class="precio">$45.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20la%20Crema%20Hidratante%20Facial%20de%20$45.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 7: LABIAL MATTE -->
-        <div class="tarjeta-producto" data-category="belleza">
-            <img src="labial-matte.png" alt="Labial Matte JADARA" class="foto-producto">
-            <div class="info-producto">
-                <h3>Labial Velvet Matte</h3>
-                <p class="descripcion">Color intenso de alta pigmentación y acabado mate aterciopelado. No reseca los labios y dura todo el día.</p>
-                <span class="precio">$25.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesa%20el%20Labial%20Velvet%20Matte%20de%20$25.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 8: SALVATORE (AGREGADO) -->
-        <div class="tarjeta-producto" data-category="calzado">
-            <img src="salvatore.png" alt="Calzado Salvatore" class="foto-producto">
-            <div class="info-producto">
-                <h3>Calzado Salvatore</h3>
-                <p class="descripcion">Diseño premium con acabados de alta calidad, comodidad ideal para el uso diario. <br><strong>Tallas: 36 a la 44.</strong></p>
-                <span class="precio">$95.000 COP</span>
-                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Salvatore%20de%20$95.000" class="btn-whatsapp">
-                    Pedir por WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <!-- 👇 AQUÍ ABAJO PEGARÁS TUS PRÓXIMOS TENIS EN EL FUTURO 👇 -->
-
-    </main>
-
-    <footer>
-        <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- INTERACCIONES EN VIVO GENERALES -->
     <script>
-        // Ocultar pantalla de bienvenida
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const pantalla = document.getElementById('pantalla-carga');
-                if (pantalla) pantalla.classList.add('ocultar-carga');
-            }, 1300);
-        });
-
-        // Función global de Filtros
-        function filtrarProductos(filtro) {
-            const botones = document.querySelectorAll('.btn-categoria');
-            botones.forEach(btn => btn.classList.remove('activo'));
+        function guardarProducto(e) {
+            e.preventDefault();
             
-            if (event && event.target) {
-                event.target.classList.add('activo');
-            }
+            // Capturamos los datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const precio = parseInt(document.getElementById('precio').value);
+            const categoria = document.getElementById('categoria').value;
+            const imagen = document.getElementById('imagen').value;
 
-            const tarjetas = document.querySelectorAll('.tarjeta-producto');
-            tarjetas.forEach(tarjeta => {
-                const categoria = tarjeta.getAttribute('data-category');
-                if (filtro === 'todo' || categoria === filtro) {
-                    tarjeta.style.display = "block";
-                } else {
-                    tarjeta.style.display = "none";
-                }
-            });
+            // Creamos el objeto del nuevo producto
+            const nuevoProducto = {
+                id: Date.now(), // ID único basado en el tiempo
+                nombre: nombre,
+                precioText: `$${precio.toLocaleString('es-CO')} COP`,
+                precioNum: precio,
+                categoria: categoria,
+                imagen: imagen
+            };
+
+            // Traemos los productos guardados antes o creamos una lista vacía
+            let productosAdmin = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
+            
+            // Agregamos el nuevo producto a la lista
+            productosAdmin.push(nuevoProducto);
+
+            // Guardamos la lista actualizada en el almacenamiento local
+            localStorage.setItem('productosJadaraAdmin', JSON.stringify(productosAdmin));
+
+            // Mostramos alerta de éxito y limpiamos el formulario
+            const alerta = document.getElementById('alerta-exito');
+            alerta.style.display = 'block';
+            document.getElementById('form-producto').reset();
+
+            // Escondemos la alerta después de 3 segundos
+            setTimeout(() => { alerta.style.display = 'none'; }, 3000);
         }
     </script>
 </body>

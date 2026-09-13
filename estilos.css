@@ -932,7 +932,7 @@ nav::-webkit-scrollbar {
     background-repeat: repeat, repeat, repeat, repeat, no-repeat !important;
     background-position: 0 0, 0 0, 0 0, 0 0, bottom right !important;
        background-size: 40px 70px, 40px 70px, 40px 70px, 40px 70px, 205px auto !important;
-e
+
     
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1) !important;
     z-index: 100000 !important; /* Por encima de todo */
@@ -983,23 +983,43 @@ e
 }
 
 .btn-categoria-item {
-    background-color: rgba(252, 246, 246, 0.3) !important; /* Fondo rosa translúcido al 30% */
-    border: 1px solid rgba(181, 124, 124, 0.25) !important; /* Borde rosa finito */
-    color: #b57c7c !important; /* El color de JADARA */
+    position: relative !important;
+    overflow: hidden !important;
+    background-size: cover !important;
+    background-position: right center !important; /* Muestra el producto real al lado derecho del óvalo */
+    background-repeat: no-repeat !important;
+    border: 1px solid rgba(181, 124, 124, 0.25) !important;
+    color: #b57c7c !important;
     padding: 12px 15px !important;
     border-radius: 25px !important;
-       font-family: 'Fluent Emoji Color', 'Plus Jakarta Sans', sans-serif !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 0.95rem !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     text-align: left !important;
     cursor: pointer !important;
     
-    /* EFECTO DE VIDRIO ESMERILADO (Muestra el tulipán difuminado atrás) */
+    /* EFECTO DE VIDRIO ESMERILADO TRANSLÚCIDO ATRÁS */
     backdrop-filter: blur(4px) !important;
     -webkit-backdrop-filter: blur(4px) !important;
-    
     transition: all 0.3s ease !important;
 }
+
+/* Capa blanca translúcida para que tus letras rosas se lean perfecto a la izquierda */
+.btn-categoria-item::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.94) 35%, rgba(255, 255, 255, 0.15) 100%) !important;
+    z-index: 0 !important;
+}
+
+/* Forzamos a que el texto quede siempre al frente de la foto real */
+.btn-categoria-item span, 
+.btn-categoria-item i {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
 
 .btn-categoria-item:hover,
 .btn-categoria-item:active {
@@ -1009,7 +1029,75 @@ e
     transform: translateX(4px); /* Se mueve un milímetro a la derecha */
 }
 
+/* --- SILUETAS REALES TRANSLÚCIDAS DESDE CSS --- */
 .btn-categoria-item {
-    font-family: 'Fluent Emoji Color', 'Plus Jakarta Sans', sans-serif !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
+
+/* --- BOTONES CON MICRO-FOTOGRAFÍAS REALES A COLOR --- */
+.btn-categoria-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important; /* Espacio elegante entre la foto y el texto */
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    padding: 10px 18px !important;
+}
+
+/* Creamos la caja donde flotará la foto real */
+.btn-categoria-item::before {
+    content: "" !important;
+    width: 26px !important;  /* Tamaño perfecto de la mini foto */
+    height: 26px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    transition: all 0.3s ease !important;
+    opacity: 0.95 !important; /* Brillo fino que combina con JADARA */
+}
+
+/* Foto para 1: Todo (Icono de tienda/catálogo) */
+.btn-categoria-item:nth-child(1)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Foto para 2: Calzado (Un tacón real de alta gama) */
+.btn-categoria-item:nth-child(2)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Foto para 3: Carteras (Un bolso de mano real) */
+.btn-categoria-item:nth-child(3)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Foto para 4: Belleza (Un labial de maquillaje real) */
+.btn-categoria-item:nth-child(4)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Foto para 5: Gorras (Una gorra real) */
+.btn-categoria-item:nth-child(5)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Foto para 6: Ropa (Un vestido real) */
+.btn-categoria-item:nth-child(6)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Foto para 7: Tecnología (Un smartphone/iPhone moderno real) */
+.btn-categoria-item:nth-child(7)::before { 
+    background-image: url('https://icons8.com') !important; 
+}
+
+/* Efecto cuando el cliente interactúa con el botón */
+.btn-categoria-item:hover::before,
+.btn-categoria-item:active::before {
+    transform: scale(1.15); /* Crece un poquito de forma muy interactiva */
+}
+
+
 

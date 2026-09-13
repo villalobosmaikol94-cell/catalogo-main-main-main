@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JADARA - Catálogo Oficial</title>
-    <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <!-- Forzamos la actualización de estilos incrementando la versión -->
-         <!-- LIBRERÍA DE ICONOS REALISTAS 3D -->
-    <link rel="stylesheet" href="https://tetunori.github.io/fluent-emoji-webfont/dist/FluentEmojiColor.css">
-    <link rel="stylesheet" href="estilos.css?v=5.5">
+        <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <!-- ICONOS LINEALES DE ALTA GAMA (FONT AWESOME) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="estilos.css?v=5.6">
+
 
 </head>
 <body>
@@ -66,15 +67,14 @@
         <h3>Categorías</h3>
         <button class="btn-cerrar-menu" onclick="alternarMenuLateral()">✕</button>
     </div>
-    <div class="menu-lateral-contenido">
-               <button class="btn-categoria-item" onclick="filtrarProductos('todo', event); alternarMenuLateral()">✨ Todo</button>
-        <button class="btn-categoria-item" onclick="filtrarProductos('calzado', event); alternarMenuLateral()">👠 Calzado</button>
-        <button class="btn-categoria-item" onclick="filtrarProductos('carteras', event); alternarMenuLateral()">👜 Carteras</button>
-        <button class="btn-categoria-item" onclick="filtrarProductos('belleza', event); alternarMenuLateral()">💄 Belleza</button>
-        <button class="btn-categoria-item" onclick="filtrarProductos('gorras', event); alternarMenuLateral()">🧢 Gorras</button>
-        <button class="btn-categoria-item" onclick="filtrarProductos('ropa', event); alternarMenuLateral()">👗 Ropa</button>
-        <button class="btn-categoria-item" onclick="filtrarProductos('tecnologia', event); alternarMenuLateral()">📱 Tecnología</button>
-
+            <div class="menu-lateral-contenido">
+        <button class="btn-categoria-item" onclick="filtrarProductos('todo', event); alternarMenuLateral()"><span>Todo</span></button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('calzado', event); alternarMenuLateral()"><span>Calzado</span></button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('carteras', event); alternarMenuLateral()"><span>Carteras</span></button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('belleza', event); alternarMenuLateral()"><span>Belleza</span></button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('gorras', event); alternarMenuLateral()"><span>Gorras</span></button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('ropa', event); alternarMenuLateral()"><span>Ropa</span></button>
+        <button class="btn-categoria-item" onclick="filtrarProductos('tecnologia', event); alternarMenuLateral()"><span>Tecnología</span></button>
     </div>
 </div>
 
@@ -319,6 +319,26 @@
     <script>
         // 1. PANTALLA DE CARGA (SPLASH SCREEN)
         window.addEventListener('load', () => {
+                    // LEER E INYECTAR PRODUCTOS DESDE EL PANEL DE ADMINISTRACIÓN
+        const productosNuevos = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
+        const contenedorProductos = document.querySelector('.main-catalogo');
+        
+        if (contenedorProductos && productosNuevos.length > 0) {
+            productosNuevos.forEach(prod => {
+                const tarjeta = document.createElement('div');
+                tarjeta.className = 'tarjeta-producto';
+                tarjeta.setAttribute('data-category', prod.categoria);
+                
+                tarjeta.innerHTML = `
+                    <img src="${prod.imagen}" alt="${prod.nombre}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+                    <h3 class="nombre-prod" style="font-size:16px; margin:8px 0; color:#333;">${prod.nombre}</h3>
+                    <p class="precio" data-precio="${prod.precioNum}" style="color:#b57c7c; font-weight:bold; margin:5px 0;">${prod.precioText}</p>
+                    <button class="btn-agregar-carrito" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:10px; border-radius:20px; font-weight:bold; cursor:pointer; margin-top:8px;">Agregar al carrito</button>
+                `;
+                contenedorProductos.appendChild(tarjeta);
+            });
+        }
+
             const pantallaCarga = document.getElementById('pantalla-carga');
             if (pantallaCarga) {
                 setTimeout(() => {
