@@ -318,26 +318,27 @@
 
     <script>
         // 1. PANTALLA DE CARGA (SPLASH SCREEN)
-        window.addEventListener('load', () => {
-                    // LEER E INYECTAR PRODUCTOS DESDE EL PANEL DE ADMINISTRACIÓN
-        const productosNuevos = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
-        const contenedorProductos = document.querySelector('.main-catalogo');
-        
-        if (contenedorProductos && productosNuevos.length > 0) {
-            productosNuevos.forEach(prod => {
-                const tarjeta = document.createElement('div');
-                tarjeta.className = 'tarjeta-producto';
-                tarjeta.setAttribute('data-category', prod.categoria);
-                
-                tarjeta.innerHTML = `
-                    <img src="${prod.imagen}" alt="${prod.nombre}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
-                    <h3 class="nombre-prod" style="font-size:16px; margin:8px 0; color:#333;">${prod.nombre}</h3>
-                    <p class="precio" data-precio="${prod.precioNum}" style="color:#b57c7c; font-weight:bold; margin:5px 0;">${prod.precioText}</p>
-                    <button class="btn-agregar-carrito" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:10px; border-radius:20px; font-weight:bold; cursor:pointer; margin-top:8px;">Agregar al carrito</button>
-                `;
-                contenedorProductos.appendChild(tarjeta);
-            });
-        }
+       window.addEventListener('load', () => {
+                    // --- NUEVO: CARGAR PRODUCTOS DESDE EL PANEL DE ADMINISTRACIÓN ---
+            const productosNuevos = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
+            const contenedorProductos = document.querySelector('.main-catalogo');
+            
+            if (contenedorProductos && productosNuevos.length > 0) {
+                productosNuevos.forEach(prod => {
+                    const tarjeta = document.createElement('div');
+                    tarjeta.className = 'tarjeta-producto';
+                    tarjeta.setAttribute('data-category', prod.categoria);
+                    
+                    tarjeta.innerHTML = `
+                        <img src="${prod.imagen}" alt="${prod.nombre}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+                        <h3 class="nombre-prod" style="font-size:16px; margin:8px 0; color:#333; font-family:'Plus Jakarta Sans',sans-serif;">${prod.nombre}</h3>
+                        <p class="precio" data-precio="${prod.precioNum}" style="color:#b57c7c; font-weight:bold; margin:5px 0;">${prod.precioText}</p>
+                        <button class="btn-agregar-carrito" style="width:100%; background-color:#b57c7c; color:white; border:none; padding:10px; border-radius:20px; font-weight:bold; cursor:pointer; margin-top:8px;">Agregar al carrito</button>
+                    `;
+                    contenedorProductos.appendChild(tarjeta);
+                });
+            }
+            // ----------------------------------------------------------------
 
             const pantallaCarga = document.getElementById('pantalla-carga');
             if (pantallaCarga) {

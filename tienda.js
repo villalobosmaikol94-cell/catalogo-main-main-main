@@ -131,28 +131,35 @@ function eliminarDelCarrito(index) {
     localStorage.setItem('carritoJadara', JSON.stringify(carrito));
 }
 
-function enviarPedidoWhatsApp() {
-    if (carrito.length === 0) {
-        alert("Tu carrito está vacío.");
-        return;
-    }
+        function enviarPedidoWhatsApp() {
+            if (carrito.length === 0) { alert("Tu carrito está vacío."); return; }
+            let numeroTelefono = "573246670248"; 
+            let mensaje = `Hola JADARA, quiero realizar el siguiente pedido:\n\n`;
+            let productosTexto = "";
+            
+            carrito.forEach((item, index) => {
+                let linea = `${index + 1}. *${item.nombre}* (${item.precioTexto})\n`;
+                mensaje += linea;
+                productosTexto += linea.replace(/\*/g, '');
+            });
+            
+            const contenedorTotal = document.getElementById('precio-total-carrito').innerText;
+            mensaje += `\n💰 *Total del Pedido:* ${contenedorTotal}`;
+            
+            // --- NUEVO: GUARDAR EN EL HISTORIAL ADMINISTRATIVO ---
+            let historialPedidos = JSON.parse(localStorage.getItem('historialPedidosJadara')) || [];
+            historialPedidos.push({
+                id: Date.now(),
+                fecha: new Date().toLocaleString('es-CO'),
+                productos: productosTexto,
+                total: contenedorTotal
+            });
+            localStorage.setItem('historialPedidosJadara', JSON.stringify(historialPedidos));
+            // ------------------------------------------------------
 
-    let numeroTelefono = "573246670248"; 
-    let mensaje = `Hola JADARA, quiero realizar el siguiente pedido:\n\n`;
+            window.open("https://wa.me" + numeroTelefono + "?text=" + encodeURIComponent(mensaje), '_blank');
+        }
 
-    carrito.forEach((item, index) => {
-        let detalles = '';
-        if (item.color) detalles += ` - Color: ${item.color}`;
-        if (item.talla) detalles += ` - Talla: ${item.talla}`;
-        mensaje += `${index + 1}. *${item.nombre}*${detalles} (${item.precioTexto})\n`;
-    });
-
-    const contenedorTotal = document.getElementById('precio-total-carrito').innerText;
-    mensaje += `\n💰 *Total del Pedido:* ${contenedorTotal}`;
-
-    const urlWhatsApp = "https://wa.me" + "/" + numeroTelefono + "?text=" + encodeURIComponent(mensaje);
-    window.open(urlWhatsApp, '_blank');
-}
 
 // ZOOM
 document.addEventListener('click', function(e) {

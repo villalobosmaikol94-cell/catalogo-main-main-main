@@ -3,55 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JADARA - Panel de Administración</title>
+    <title>JADARA - Centro de Control Completo</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fdfbfb; margin: 0; padding: 20px; color: #333; }
-        .admin-container { max-width: 600px; margin: 20px auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(181, 124, 124, 0.1); border: 1px solid #f5ebeb; }
+        .admin-container { max-width: 650px; margin: 20px auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(181, 124, 124, 0.1); border: 1px solid #f5ebeb; }
         h1, h2 { color: #b57c7c; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
         h1 { font-size: 24px; margin-bottom: 25px; }
-        h2 { font-size: 18px; margin-top: 40px; margin-bottom: 20px; border-bottom: 2px solid #f5ebeb; padding-bottom: 10px; }
+        h2 { font-size: 18px; margin-top: 40px; margin-bottom: 20px; border-bottom: 2px solid #f5ebeb; padding-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .form-group { margin-bottom: 18px; }
         label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #555; }
         input, select { width: 100%; padding: 12px; border: 1px solid #e1d5d5; border-radius: 8px; box-sizing: border-box; font-family: inherit; font-size: 14px; }
         input:focus, select:focus { outline: none; border-color: #b57c7c; }
-        .btn-guardar { width: 100%; background-color: #b57c7c; color: white; border: none; padding: 14px; border-radius: 25px; font-weight: bold; font-size: 15px; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
+        .btn-guardar { width: 100%; background-color: #b57c7c; color: white; border: none; padding: 14px; border-radius: 25px; font-weight: bold; font-size: 15px; cursor: pointer; transition: background 0.3s; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
         .alerta { padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px; font-size: 14px; display: none; }
         .alerta-exito { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
-        
-        /* ESTILOS DE LA LISTA DE PRODUCTOS */
         .lista-productos { display: flex; flex-direction: column; gap: 12px; }
         .item-producto { display: flex; align-items: center; justify-content: space-between; padding: 12px; border: 1px solid #f5ebeb; border-radius: 10px; background-color: #faf7f7; }
         .info-prod { display: flex; align-items: center; gap: 12px; }
-        .img-preview { width: 45px; height: 45px; object-fit: cover; border-radius: 6px; border: 1px solid #e1d5d5; }
+        .img-preview { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid #e1d5d5; }
         .detalles-prod h4 { margin: 0; font-size: 14px; color: #333; }
-        .detalles-prod p { margin: 2px 0 0 0; font-size: 12px; color: #b57c7c; font-weight: bold; }
-        .btn-eliminar { background-color: #ffdde1; color: #c62828; border: 1px solid #ffcdd2; padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
-        .btn-eliminar:hover { background-color: #ffcdd2; }
-        .sin-productos { text-align: center; color: #8c8c8c; font-size: 14px; font-style: italic; padding: 20px; }
+        .detalles-prod p { margin: 2px 0 5px 0; font-size: 11px; color: #8c8c8c; }
+        .input-precio-rapido { width: 95px !important; padding: 5px 8px !important; font-size: 12px !important; border: 1px solid #e1d5d5 !important; border-radius: 6px !important; text-align: center; background: white; }
+        .btn-eliminar { background-color: #ffdde1; color: #c62828; border: 1px solid #ffcdd2; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; }
+        .sin-datos { text-align: center; color: #8c8c8c; font-size: 14px; font-style: italic; padding: 20px; }
+        .pedido-card { border: 1px solid #f5ebeb; border-radius: 12px; padding: 15px; margin-bottom: 12px; background-color: #ffffff; }
+        .pedido-header { display: flex; justify-content: space-between; border-bottom: 1px dashed #f5ebeb; padding-bottom: 8px; margin-bottom: 10px; font-size: 12px; color: #666; }
+        .pedido-detalles { font-size: 13px; white-space: pre-line; line-height: 1.4; color: #444; }
+        .pedido-total { font-weight: bold; color: #b57c7c; margin-top: 8px; font-size: 14px; text-align: right; }
+        .btn-limpiar-historial { background: none; border: 1px solid #b57c7c; color: #b57c7c; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; display: block; margin: 0 auto 20px auto; }
     </style>
 </head>
 <body>
 
     <div class="admin-container">
-        <h1>Control de Stock - JADARA</h1>
-        
+        <h1>Centro de Control - JADARA</h1>
         <div id="alerta-exito" class="alerta alerta-exito">✨ ¡Producto añadido al catálogo con éxito!</div>
 
         <!-- FORMULARIO PARA AÑADIR -->
         <form id="form-producto" onsubmit="guardarProducto(event)">
             <div class="form-group">
                 <label for="nombre">Nombre del Producto</label>
-                <input type="text" id="nombre" required placeholder="Ej. Cartera Cuero Elegante">
+                <input type="text" id="nombre" required placeholder="Ej. Cartera Sahara Cuero">
             </div>
             <div class="form-group">
-                <label for="precio">Precio (en COP)</label>
-                <input type="number" id="precio" required placeholder="Ej. 120000">
+                <label for="precio">Precio Base (en COP)</label>
+                <input type="number" id="precio" required placeholder="Ej. 145000">
             </div>
             <div class="form-group">
-                <label for="categoria">Categoría</label>
+                <label for="categoria">Categoría Correspondiente</label>
                 <select id="categoria" required>
                     <option value="calzado">👠 Calzado</option>
                     <option value="carteras">👜 Carteras</option>
@@ -68,16 +70,19 @@
             <button type="submit" class="btn-guardar">🚀 Añadir al Catálogo</button>
         </form>
 
-        <!-- SECCIÓN DE BORRADO DE STOCK -->
-        <h2>Productos en tu Catálogo</h2>
-        <div id="lista-productos-admin" class="lista-productos">
-            <!-- Aquí se pintan los productos para poder borrarlos -->
-        </div>
+        <h2>📦 Control de Inventario y Precios</h2>
+        <div id="lista-productos-admin" class="lista-productos"></div>
+
+        <h2>📋 Historial de Ventas e Intenciones</h2>
+        <button class="btn-limpiar-historial" onclick="limpiarHistorialPedidos()">Vaciar Registro Interno</button>
+        <div id="lista-pedidos-admin"></div>
     </div>
 
     <script>
-        // Cargar la lista apenas abre la página
-        window.addEventListener('load', renderizarProductosAdmin);
+        window.addEventListener('load', () => {
+            renderizarProductosAdmin();
+            renderizarPedidosAdmin();
+        });
 
         function guardarProducto(e) {
             e.preventDefault();
@@ -110,11 +115,10 @@
         function renderizarProductosAdmin() {
             const contenedor = document.getElementById('lista-productos-admin');
             if (!contenedor) return;
-            
             let productosAdmin = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
             
             if (productosAdmin.length === 0) {
-                contenedor.innerHTML = '<div class="sin-productos">No has añadido productos nuevos todavía.</div>';
+                contenedor.innerHTML = '<div class="sin-datos">No has añadido productos nuevos todavía.</div>';
                 return;
             }
 
@@ -127,7 +131,12 @@
                         <img src="${prod.imagen}" class="img-preview" alt="Preview">
                         <div class="detalles-prod">
                             <h4>${prod.nombre}</h4>
-                            <p>${prod.precioText} | <span style="text-transform:uppercase; font-size:10px;">${prod.categoria}</span></p>
+                            <p style="margin:2px 0 6px 0;"><span style="text-transform:uppercase; font-size:9px; background:#e1d5d5; padding:2px 6px; border-radius:10px; color:#555;">${prod.categoria}</span></p>
+                            <div style="display:flex; align-items:center; gap:4px;">
+                                <span style="font-size:12px; color:#b57c7c; font-weight:bold;">$</span>
+                                <input type="number" value="${prod.precioNum}" onchange="actualizarPrecioAdmin(${prod.id}, this.value)" class="input-precio-rapido">
+                                <span style="font-size:11px; color:#777; font-weight:600;">COP</span>
+                            </div>
                         </div>
                     </div>
                     <button class="btn-eliminar" onclick="eliminarProductoAdmin(${prod.id})">❌ Eliminar</button>
@@ -136,19 +145,20 @@
             });
         }
 
-        function eliminarProductoAdmin(id) {
-            if (confirm("¿Estás segura de que quieres eliminar este producto de la tienda?")) {
-                let productosAdmin = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
-                // Filtramos para sacar el producto seleccionado
-                productosAdmin = productosAdmin.filter(prod => prod.id !== id);
-                localStorage.setItem('productosJadaraAdmin', JSON.stringify(productosAdmin));
-                
-                // Refrescamos la lista en la pantalla del administrador
-                renderizarProductosAdmin();
-                
-                alert("Producto eliminado. Los cambios se reflejarán inmediatamente.");
-            }
+        function actualizarPrecioAdmin(id, nuevoPrecio) {
+            let productosAdmin = JSON.parse(localStorage.getItem('productosJadaraAdmin')) || [];
+            const precioNum = parseInt(nuevoPrecio);
+            if (isNaN(precioNum) || precioNum <= 0) { alert("Ingresa un precio válido."); renderizarProductosAdmin(); return; }
+
+            productosAdmin = productosAdmin.map(prod => {
+                if (prod.id === id) {
+                    return { ...prod, precioNum: precioNum, precioText: `$${precioNum.toLocaleString('es-CO')} COP` };
+                }
+                return prod;
+            });
+            localStorage.setItem('productosJadaraAdmin', JSON.stringify(productosAdmin));
+            renderizarProductosAdmin();
         }
-    </script>
-</body>
-</html>
+
+        function eliminarProductoAdmin(id) {
+        }
