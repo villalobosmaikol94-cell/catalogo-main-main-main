@@ -746,3 +746,30 @@ footer {
     background-color: #128c7e;
     transform: translateY(-2px);
 }
+/* --- EFECTO DE DESTELLOS MÁGICOS JADARA --- */
+.destello-estrella {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #fff 20%, rgba(255,215,0,0.8) 60%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none; /* Para que no estorbe al hacer clic */
+    z-index: 9999;
+    box-shadow: 0 0 10px #fff, 0 0 15px rgba(255,215,0,0.5);
+    animation: brillarYCaer 1.2s ease-out forwards;
+}
+
+@keyframes brillarYCaer {
+    0% {
+        transform: translate(0, 0) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translate(0, -5px) scale(1.2);
+    }
+    100% {
+        transform: translate(var(--x-destello), var(--y-destello)) scale(0) rotate(180deg);
+        opacity: 0;
+    }
+}

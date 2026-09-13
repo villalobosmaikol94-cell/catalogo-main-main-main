@@ -146,3 +146,52 @@ document.addEventListener('click', function(e) {
         if (modal) modal.style.display = "none";
     }
 });
+// --- EFECTO MÁGICO: DESTELLOS DE ESTRELLAS ---
+document.addEventListener('mousemove', function(e) {
+    // Para que no cree demasiadas estrellas seguidas, limitamos el azar
+    if (Math.random() > 0.15) return; 
+
+    const estrella = document.createElement('div');
+    estrella.classList.add('destello-estrella');
+    
+    // Posición inicial en la punta del mouse
+    estrella.style.left = e.clientX + 'px';
+    estrella.style.top = e.clientY + 'px';
+    
+    // Movimiento aleatorio hacia los lados (física del destello)
+    const direccionX = (Math.random() - 0.5) * 40; // Se mueve a los lados
+    const direccionY = (Math.random() * 30) + 10;   // Cae un poquito
+    
+    estrella.style.setProperty('--x-destello', `${direccionX}px`);
+    estrella.style.setProperty('--y-destello', `${direccionY}px`);
+    
+    // Tamaño aleatorio para que se vea orgánico
+    const tamano = Math.random() * 6 + 4;
+    estrella.style.width = tamano + 'px';
+    estrella.style.height = tamano + 'px';
+
+    document.body.appendChild(estrella);
+    
+    // Borrar la estrella de la memoria cuando termine la animación
+    setTimeout(() => {
+        estrella.remove();
+    }, 1200);
+});
+// Funciona al tocar la pantalla en celulares
+document.addEventListener('touchmove', function(e) {
+    if (Math.random() > 0.15) return; 
+    const t = e.touches[0];
+    const estrella = document.createElement('div');
+    estrella.classList.add('destello-estrella');
+    estrella.style.left = t.clientX + 'px';
+    estrella.style.top = t.clientY + 'px';
+    const direccionX = (Math.random() - 0.5) * 40;
+    const direccionY = (Math.random() * 30) + 10;
+    estrella.style.setProperty('--x-destello', `${direccionX}px`);
+    estrella.style.setProperty('--y-destello', `${direccionY}px`);
+    const tamano = Math.random() * 6 + 4;
+    estrella.style.width = tamano + 'px';
+    estrella.style.height = tamano + 'px';
+    document.body.appendChild(estrella);
+    setTimeout(() => { estrella.remove(); }, 1200);
+});
