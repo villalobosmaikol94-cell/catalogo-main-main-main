@@ -920,14 +920,18 @@ nav::-webkit-scrollbar {
     width: 280px !important;
     height: 100vh !important;
     
-    /* MODIFICACIÓN: Fondo base con un sutil patrón de líneas boutique */
+    /* ENRAMADAS NACIENTES ELEGANTES DE FONDO */
     background-color: #ffffff !important;
     background-image: 
-        radial-gradient(rgba(181, 124, 124, 0.05) 1px, transparent 0),
-        url('tulipan.png') !important; /* Mantiene tu hermosa imagen actual */
-    background-repeat: repeat, no-repeat !important;
-    background-position: 0 0, bottom right !important; /* Puntos arriba, tulipán abajo */
-    background-size: 16px 16px, 140px auto !important; /* Tamaño del patrón y del tulipán */
+        linear-gradient(30deg, rgba(181, 124, 124, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(181, 124, 124, 0.03) 87.5%, rgba(181, 124, 124, 0.03)),
+        linear-gradient(150deg, rgba(181, 124, 124, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(181, 124, 124, 0.03) 87.5%, rgba(181, 124, 124, 0.03)),
+        linear-gradient(30deg, rgba(181, 124, 124, 0.03) 61%, transparent 61.5%, transparent 85%, rgba(181, 124, 124, 0.03) 85.5%, rgba(181, 124, 124, 0.03)),
+        linear-gradient(150deg, rgba(181, 124, 124, 0.03) 61%, transparent 61.5%, transparent 85%, rgba(181, 124, 124, 0.03) 85.5%, rgba(181, 124, 124, 0.03)),
+        url('tulipan.png') !important; /* Mantiene tu hermoso tulipán abajo */
+        
+    background-repeat: repeat, repeat, repeat, repeat, no-repeat !important;
+    background-position: 0 0, 0 0, 0 0, 0 0, bottom right !important;
+    background-size: 40px 70px, 40px 70px, 40px 70px, 40px 70px, 140px auto !important;
     
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1) !important;
     z-index: 100000 !important; /* Por encima de todo */
@@ -935,6 +939,7 @@ nav::-webkit-scrollbar {
     display: flex !important;
     flex-direction: column !important;
 }
+
 
 
 /* Cuando la clase cambia a abierto, se desliza hacia adentro */
