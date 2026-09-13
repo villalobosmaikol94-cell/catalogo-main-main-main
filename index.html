@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE APERTURA PROFESIONAL (SPLASH SCREEN) -->
+        <!-- PANTALLA DE APERTURA PROFESIONAL (SPLASH SCREEN) -->
     <div id="pantalla-carga">
         <div class="contenido-carga">
             <img src="logo.png" alt="Logo JADARA" class="logo-carga">
@@ -22,6 +22,29 @@
             <p>Belleza con propósito</p>
         </div>
     </div>
+
+    <!-- ENCABEZADO MINIMALISTA CON CARRITO INTEGRADO (FUERA DE LA PANTALLA DE CARGA) -->
+    <header>
+        <div class="header-container">
+            <div class="header-logo-texto">
+                <img src="logo.png" alt="Logo JADARA" class="logo-min">
+                <div class="texto-header">
+                    <h1>JADARA</h1>
+                    <p class="eslogan">Belleza con propósito</p>
+                    
+                    <!-- VERSÍCULO SALMOS 37:3-5 INTEGRADO -->
+                    <p class="versiculo-espejo">
+                        "Confía en el SEÑOR y haz el bien... El SEÑOR te da gozo, disfrútalo, y él te dará lo que más deseas. Entrega al SEÑOR tu vida; confía en él y Dios actuará." <span class="cita-salmo">- Salmos 37:3-5</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- EL CARRITO EN LA ESQUINA SUPERIOR DERECHA -->
+            <div id="btn-carrito-encabezado" onclick="alternarCarrito()">
+                🛒 <span id="contador-carrito">0</span>
+            </div>
+        </div>
+    </header>
 
         <!-- ENCABEZADO MINIMALISTA CON CARRITO INTEGRADO -->
     <header>
