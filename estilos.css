@@ -835,3 +835,33 @@ footer {
         opacity: 0;
     }
 }
+.logo-min {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important; /* Mantiene el óvalo/círculo perfecto */
+}
+/* --- BARRA DE CATEGORÍAS DESLIZABLE (EVITA QUE SE DESCUADRE) --- */
+.header-container + div, 
+.contenedor-botones,
+nav { 
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important; /* Permite deslizar con el dedo de lado a lado */
+    white-space: nowrap !important;
+    padding: 10px 15px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important; /* Oculta la barra de scroll en Firefox */
+}
+
+/* Oculta la barra de scroll en celulares Android y iPhone */
+.contenedor-botones::-webkit-scrollbar,
+nav::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Estilo para que los botones se vean estilizados en la misma línea */
+.btn-categoria {
+    flex: 0 0 auto !important; /* Evita que los botones se encojan o se deformen */
+}
