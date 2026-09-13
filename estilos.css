@@ -865,3 +865,49 @@ nav::-webkit-scrollbar {
 .btn-categoria {
     flex: 0 0 auto !important; /* Evita que los botones se encojan o se deformen */
 }
+/* --- PANTALLA DE CARGA PROFESIONAL TOTALMENTE CENTRADA --- */
+#pantalla-carga {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: #fdfbfb !important; /* Fondo elegante para JADARA */
+    display: flex !important;
+    justify-content: center !important; /* Centrado horizontal */
+    align-items: center !important;     /* Centrado vertical */
+    z-index: 99999 !important;          /* Se posiciona por encima de todo */
+}
+
+/* Alineación e interactividad del contenido interno */
+.contenido-carga {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;     /* Centra la imagen, el título y el eslogan en fila */
+    text-align: center !important;
+}
+
+/* Tamaño estilizado para el logo ovalado en la portada */
+.logo-carga {
+    max-width: 160px !important; /* Ajuste ideal para pantallas de celular */
+    height: auto !important;
+    object-fit: contain !important;
+    margin-bottom: 12px !important;
+}
+
+/* Estilos para el texto de la carga */
+.contenido-carga h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #b57c7c;
+    margin: 0 0 4px 0;
+    letter-spacing: 1px;
+}
+
+.contenido-carga p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #8c8c8c;
+    font-style: italic;
+    margin: 0;
+}
