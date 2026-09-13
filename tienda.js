@@ -125,10 +125,10 @@ function enviarPedidoWhatsApp() {
     const contenedorTotal = document.getElementById('precio-total-carrito').innerText;
     mensaje += `\n💰 *Total del Pedido:* ${contenedorTotal}`;
 
-   const urlWhatsApp = `https://wa.me{numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+  const urlWhatsApp = "https://wa.me" + "/" + numeroTelefono + "?text=" + encodeURIComponent(mensaje);
 
 
-    window.open(urlWhatsApp, '_blank');
+ window.open(urlWhatsApp, '_blank');
 }
 
 // ZOOM
