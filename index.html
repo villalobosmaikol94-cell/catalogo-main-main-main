@@ -53,9 +53,14 @@
 
     <!-- MENÚ DE CATEGORÍAS -->
     <div class="categorias-contenedor">
-        <button class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</button>
-        <button class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</button>
-        <button class="btn-categoria" data-filter="belleza" onclick="filtrarProductos('belleza')">Belleza</button>
+      <button class="btn-categoria" onclick="filtrarProductos('todo', event)">Todo</button>
+<button class="btn-categoria" onclick="filtrarProductos('calzado', event)">Calzado</button>
+<button class="btn-categoria" onclick="filtrarProductos('carteras', event)">Carteras</button>
+<button class="btn-categoria" onclick="filtrarProductos('belleza', event)">Belleza</button>
+<button class="btn-categoria" onclick="filtrarProductos('gorras', event)">Gorras</button>
+<button class="btn-categoria" onclick="filtrarProductos('ropa', event)">Ropa</button>
+<button class="btn-categoria" onclick="filtrarProductos('tecnologia', event)">Tecnología</button>
+
     </div>
 
     <!-- Contenedor del Catálogo -->
