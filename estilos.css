@@ -931,7 +931,8 @@ nav::-webkit-scrollbar {
         
     background-repeat: repeat, repeat, repeat, repeat, no-repeat !important;
     background-position: 0 0, 0 0, 0 0, 0 0, bottom right !important;
-    background-size: 40px 70px, 40px 70px, 40px 70px, 40px 70px, 140px auto !important;
+       background-size: 40px 70px, 40px 70px, 40px 70px, 40px 70px, 205px auto !important;
+e
     
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1) !important;
     z-index: 100000 !important; /* Por encima de todo */
